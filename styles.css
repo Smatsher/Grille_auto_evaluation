@@ -7,13 +7,14 @@ body {
 }
 
 #form-container {
-  max-width: 900px;
+  max-width: 100%;
   margin: auto;
-  padding: 25px 30px;
+  padding: 15px;
   border: 1px solid #bbb;
   border-radius: 6px;
   box-shadow: 0 0 10px #ddd;
   background-color: #fff;
+  box-sizing: border-box;
 }
 
 header .header-line {
@@ -30,7 +31,7 @@ header hr {
 }
 
 header h1 {
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: bold;
   text-align: center;
   margin: 5px 0 20px 0;
@@ -39,7 +40,7 @@ header h1 {
 }
 
 .section-block {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   padding: 10px 0;
 }
 
@@ -53,50 +54,49 @@ header h1 {
 
 .row {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 8px;
+  flex-direction: column;
+  margin-bottom: 12px;
 }
 
 .row label {
-  flex-basis: 260px;
   font-size: 14px;
   font-weight: 600;
+  margin-bottom: 6px;
 }
 
 .row input,
 .row select {
-  flex-grow: 1;
-  padding: 6px 8px;
+  width: 100%;
+  padding: 8px 10px;
   font-size: 14px;
   border: 1px solid #bbb;
   border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .criteria-group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .criterion-row {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
 }
 
 .criterion-label {
-  flex-basis: 640px;
   font-size: 14px;
+  margin-bottom: 6px;
 }
 
 .criterion-select {
-  flex-grow: 1;
-  max-width: 180px;
-  padding: 6px 8px;
+  width: 100%;
+  padding: 8px 10px;
   font-size: 14px;
   border: 1px solid #bbb;
   border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .row-textarea {
@@ -112,25 +112,25 @@ header h1 {
 
 .row-textarea textarea {
   width: 100%;
-  height: 70px;
-  padding: 8px 10px;
+  height: 90px;
+  padding: 10px 12px;
   font-size: 14px;
   border-radius: 6px;
   border: 1px solid #bbb;
   resize: vertical;
+  box-sizing: border-box;
 }
 
 .signature-section {
   display: flex;
-  justify-content: flex-end;
-  gap: 20px;
+  flex-direction: column;
+  gap: 15px;
   margin-top: 10px;
 }
 
 .signature-row {
   display: flex;
   flex-direction: column;
-  width: 200px;
 }
 
 .signature-row label {
@@ -140,10 +140,11 @@ header h1 {
 }
 
 .signature-row input {
-  padding: 5px 8px;
+  padding: 8px 10px;
   font-size: 14px;
   border-radius: 4px;
   border: 1px solid #bbb;
+  box-sizing: border-box;
 }
 
 button#generatePdf {
@@ -163,4 +164,51 @@ button#generatePdf {
 
 button#generatePdf:hover {
   background-color: #054d22;
+}
+
+/* Larger screens: two column layout */
+@media(min-width: 768px) {
+  .row {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .row label {
+    flex-basis: 260px;
+    margin-bottom: 0;
+    padding-right: 15px;
+  }
+
+  .row input,
+  .row select {
+    flex-grow: 1;
+    width: auto;
+  }
+
+  .criterion-row {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .criterion-label {
+    flex-basis: 640px;
+    margin-bottom: 0;
+  }
+
+  .criterion-select {
+    width: auto;
+    max-width: 180px;
+  }
+
+  .signature-section {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-top: 10px;
+  }
+
+  .signature-row {
+    width: 200px;
+  }
 }
